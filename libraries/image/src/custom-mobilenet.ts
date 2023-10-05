@@ -21,7 +21,6 @@ import { dispose } from '@tensorflow/tfjs';
 import { capture } from './utils/tf';
 import { cropTo } from './utils/canvas';
 import { version } from './version';
-
 const DEFAULT_MOBILENET_VERSION = 1;
 const DEFAULT_TRAINING_LAYER_V1 = 'conv_pw_13_relu';
 const DEFAULT_TRAINING_LAYER_V2 = "out_relu"; 
@@ -114,9 +113,10 @@ const parseModelOptions = (options?: ModelOptions) => {
             if (alphaString === "1.00") { alphaString = "1.0"; }
 
             return [
-                // tslint:disable-next-line:max-line-length        
+                // tslint:disable-next-line:max-line-length
                 // `https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_${alphaString}_${IMAGE_SIZE}/model.json`,
-                'https://agi-assets.oss-cn-beijing.aliyuncs.com/models/mobilenet_v1_1.0_224.json',
+                // 'https://agi-assets.oss-cn-beijing.aliyuncs.com/models/mobilenet_v1_1.0_224.json',
+                '/models/mobilenet_v1_1.0_224/model.json',
                 DEFAULT_TRAINING_LAYER_V1
             ];
         }
@@ -128,7 +128,8 @@ const parseModelOptions = (options?: ModelOptions) => {
             return [
                 // tslint:disable-next-line:max-line-length        
                 // `https://storage.googleapis.com/teachable-machine-models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_${options.alpha.toFixed(2)}_${IMAGE_SIZE}_no_top/model.json`,
-                'https://agi-assets.oss-cn-beijing.aliyuncs.com/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.35_224_no_top.json',
+                // 'https://agi-assets.oss-cn-beijing.aliyuncs.com/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.35_224_no_top.json',
+                '/models/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_0.35_224_no_top/model.json',
                 DEFAULT_TRAINING_LAYER_V2
             ];
         } else {
